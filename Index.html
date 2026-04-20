@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>BOBO ELECTRO SERV - Instalații electrice profesionale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 24px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.9);
+      z-index: 10;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #cbd5f5;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      padding: 80px 10% 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 44px);
+      color: #f9fafb;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: #9ca3af;
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #e5e7eb;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 24px;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(59, 130, 246, 0.15), transparent 55%),
+                  #020617;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #e5e7eb;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .hero-item {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #cbd5f5;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-item span {
+      display: block;
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    section {
+      padding: 40px 10%;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 18px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #38bdf8, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .contact-list li + li {
+      margin-top: 6px;
+    }
+
+    .contact-list span {
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    form {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 18px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 18px 10%;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .contact {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-inline: 6%;
+      }
+
+      section, .hero {
+        padding-inline: 6%;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BOBO ELECTRO SERV</div>
+  <nav>
+    <a href="#servicii">Servicii</a>
+    <a href="#despre">Despre</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>Intervenții rapide & programări la cerere</span>
+      </div>
+      <h1>Instalații electrice profesionale pentru locuințe și spații comerciale</h1>
+      <p>
+        BOBO ELECTRO SERV execută instalații electrice complete, modernizări și depanări, cu accent pe siguranță și calitate.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Solicită ofertă</a>
+        <a href="#servicii" class="btn-secondary">Vezi serviciile</a>
+      </div>
+      <p class="hero-meta">
+        <strong>Program:</strong> Luni–Vineri 08:00–18:00 · <strong>Zona:</strong> Craiova și împrejurimi
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <h2>Instalații electrice sigure, gândite pe termen lung</h2>
+      <p>
+        Soluții adaptate pentru locuințe, birouri și spații comerciale, realizate conform normelor în vigoare.
+      </p>
+      <div class="hero-grid">
+        <div class="hero-item">
+          Proiectare și execuție circuite
+          <span>Trasee optimizate, protecții corecte.</span>
+        </div>
+        <div class="hero-item">
+          Panouri și tablouri electrice
+          <span>Montaj, extinderi, modernizări.</span>
+        </div>
+        <div class="hero-item">
+          Verificări și depanări
+          <span>Diagnosticare rapidă și sigură.</span>
+        </div>
+        <div class="hero-item">
+          Iluminat interior & exterior
+          <span>LED, senzori, iluminat decorativ.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicii">
+    <h2 class="section-title">Servicii instalații electrice</h2>
+    <p class="section-subtitle">
+      BOBO ELECTRO SERV oferă servicii complete pentru apartamente, case, birouri și spații comerciale.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Instalații electrice noi</h3>
+        <p>Execuție completă circuite, prize, iluminat, împământare și protecții.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Renovări și modernizări</h3>
+        <p>Înlocuire cabluri vechi, reconfigurare circuite, mutare prize și întrerupătoare.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Tablouri și protecții</h3>
+        <p>Montaj tablouri electrice, siguranțe automate, diferențiale și protecții supratensiune.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Iluminat interior & exterior</h3>
+        <p>Corpuri LED, senzori, iluminat curte, alei și fațade.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Verificări și depanări</h3>
+        <p>Identificare scurtcircuite, contacte slabe, consum anormal.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>Consultanță</h3>
+        <p>Recomandări pentru dimensionare, echipamente și optimizarea consumului.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="despre">
+    <h2 class="section-title">Despre noi</h2>
+    <p class="section-subtitle">
+      BOBO ELECTRO SERV — echipă autorizată, orientată spre calitate, siguranță și transparență.
+    </p>
+    <p style="color:#9ca3af; font-size:14px; max-width:640px;">
+      Folosim materiale conforme standardelor actuale și explicăm clar fiecare etapă a lucrării. Ne dorim să ai o instalație electrică sigură, durabilă și fără improvizații.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">
+      Trimite-ne un mesaj pe WhatsApp sau completează formularul de mai jos.
+    </p>
+
+    <div class="contact">
+      <div class="contact-info">
+        <p>Răspundem rapid, de obicei în aceeași zi.</p>
+        <ul class="contact-list">
+          <li><span>Telefon:</span> 07xx xxx xxx</li>
+          <li><span>Email:</span> contact@bobo-electro-serv.ro</li>
+          <li><span>Adresă:</span> Craiova, jud. Dolj</li>
+          <li><span>Program:</span> Luni–Vineri 08:00–18:00</li>
+        </ul>
+      </div>
+
+      <form onsubmit="sendToWhatsApp(); return false;">
+        <label for="nume">Nume</label>
+        <input type="text" id="nume" name="nume" placeholder="Numele tău">
+
+        <label for="telefon">Telefon</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="Număr de telefon">
+
+        <label for="mesaj">Descrie lucrarea</label>
+        <textarea id="mesaj" name="mesaj" placeholder="Ex: apartament 3 camere, înlocuire instalație veche..."></textarea>
+
+        <button type="submit" class="btn-primary" style="margin-top:4px;">Trimite pe WhatsApp</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> BOBO ELECTRO SERV · Instalații electrice Craiova
+</footer>
+
+<script>
+function sendToWhatsApp() {
+  const nume = document.getElementById("nume").value;
+  const telefon = document.getElementById("telefon").value;
+  const mesaj = document.getElementById("mesaj").value;
+
+  // Transformare automată a numărului
+  let phone = telefon.trim();
+
+  // Dacă începe cu 0 → îl convertim în format internațional
+  if (phone.startsWith("0")) {
+    phone = "4" + phone; // devine 4074xxxxxx
+  }
+
+  // Dacă începe cu +40 → îl curățăm
+  if (phone.startsWith("+")) {
+    phone = phone.replace("+", "");
+  }
+
+  const text = `Nume: ${nume}%0ATelefon: ${telefon}%0AMesaj: ${mesaj}`;
+
+  const url = `https://wa.me/${phone}?text=${text}`;
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
